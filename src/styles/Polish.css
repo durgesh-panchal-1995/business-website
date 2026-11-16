@@ -1,0 +1,82 @@
+/* Design polish layer: loaded last, adds depth and small interactions without changing any content. */
+::selection{background:var(--accent);color:var(--on-accent)}
+html{scrollbar-color:color-mix(in srgb,var(--accent) 55%,var(--bg)) var(--bg)}
+h1,h2,h3{text-wrap:balance}
+body{background-image:radial-gradient(900px circle at 100% 0,color-mix(in srgb,var(--accent) 7%,transparent),transparent 60%)}
+
+/* scroll progress */
+.progress{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+
+/* buttons: gradient, shine sweep, magnetic pull (translate is set by Interactions.jsx) */
+.btn{position:relative;overflow:hidden;translate:var(--tx,0px) var(--ty,0px);transition:transform .2s,box-shadow .25s,background .2s,color .2s,translate .15s ease-out}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-130%);transition:transform .7s}
+.btn:hover::before{transform:translateX(130%)}
+.btn--solid{background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 68%,var(--accent)))}
+.btn--accent{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 70%,#fff))}
+
+/* header */
+.header{transition:box-shadow .3s,background .3s}
+.header__in{transition:padding .3s}
+.header--scrolled{box-shadow:0 10px 30px rgba(14,27,44,.10)}
+.header--scrolled .header__in{padding-block:8px}
+.header__nav a.active{color:var(--accent-dark)}
+.logo__mark{background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 4px 12px color-mix(in srgb,var(--brand) 35%,transparent)}
+
+/* hero */
+.hh__grid{z-index:1}
+.hh::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(ellipse at 25% 45%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 25% 45%,#000,transparent 72%)}
+.hh h1{background:linear-gradient(100deg,var(--on-brand) 0%,var(--on-brand) 52%,color-mix(in srgb,var(--accent) 70%,var(--on-brand)) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.hh__stats dt{background:linear-gradient(100deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#fff));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* finder card with a slowly rotating light border */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.finder{position:relative;isolation:isolate}
+.finder::before{content:"";position:absolute;inset:-2px;z-index:-1;border-radius:20px;
+  background:conic-gradient(from var(--ang),var(--accent),transparent 25%,var(--accent-dark) 50%,transparent 75%,var(--accent));animation:spin 6s linear infinite}
+@keyframes spin{to{--ang:360deg}}
+
+/* inner page hero */
+.phero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(90deg,#000,transparent 75%);mask-image:linear-gradient(90deg,#000,transparent 75%)}
+.phero::after{animation:floaty 10s ease-in-out infinite}
+@keyframes floaty{50%{transform:translate(-34px,26px) scale(1.1)}}
+
+/* section headings get a growing accent bar */
+.sec__head h2::after,.detail__main h2::after,.pdetail__main>h2::after{content:"";display:block;width:52px;height:4px;border-radius:4px;margin-top:14px;
+  background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 30%,transparent));animation:bar .9s .15s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes bar{from{width:0}}
+
+/* cards: cursor light + lift */
+.scard:hover,.pcard:hover,.gcard:hover,.why__grid article:hover,.quote:hover,.psteps li:hover,.results div:hover,.person:hover,.checks li:hover{
+  background-image:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 13%,transparent),transparent 70%)}
+.psteps li{transition:transform .25s,border-color .25s,box-shadow .25s}
+.psteps li:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 14px 30px rgba(14,27,44,.08)}
+.psteps span{transition:transform .3s}.psteps li:hover span{transform:rotate(-12deg) scale(1.1)}
+.gcard__more::after{content:" \2192";display:inline-block;transition:transform .25s}
+.gcard:hover .gcard__more::after{transform:translateX(6px)}
+.results div{transition:transform .25s,box-shadow .25s}.results div:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,27,44,.08)}
+.person{position:relative}
+.filters button:hover{transform:translateY(-2px)}
+.acc__item{transition:box-shadow .25s,background .25s}
+.acc__item.is-open{box-shadow:inset 4px 0 0 var(--accent)}
+
+/* call-to-action band and footer */
+.cta{background:linear-gradient(120deg,var(--brand),var(--brand-2),var(--brand));background-size:220% 220%;animation:flow 14s ease infinite;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:24px 24px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000)}
+.cta__in{position:relative}
+@keyframes flow{50%{background-position:100% 50%}}
+.footer{position:relative}
+.footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);background-size:200% 100%;animation:shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+
+/* back to top */
+.totop{position:fixed;right:22px;bottom:22px;z-index:60;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 65%,var(--accent)));
+  color:var(--on-brand);font-size:1.3rem;box-shadow:0 10px 24px rgba(14,27,44,.3);opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:opacity .3s,transform .3s}
+.totop.is-on{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{transform:translateY(-4px)}
+.totop span{display:block;transition:transform .25s}.totop:hover span{transform:translateY(-3px)}
+
+/* calm mode: stop looping animations entirely */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-iteration-count:1!important}.btn::before{display:none}}

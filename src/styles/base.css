@@ -1,0 +1,37 @@
+:root{
+  --ink:#0e1b2c; --muted:#52617a; --line:#dde3ec; --bg:#f4f6f8; --white:#fff;
+  --brand:#0e1b2c; --brand-2:#17304f; --primary:#0e1b2c; --line-btn:#0e1b2c; --on-brand:#fff;
+  --accent:#f5a524; --accent-dark:#b7770a; --on-accent:#0e1b2c; --tone:#0f766e;
+  --display:'Sora',system-ui,sans-serif; --body:'Figtree',system-ui,sans-serif;
+  --w:1160px; --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{transition:background .4s,color .4s;font-family:var(--body);font-size:17px;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;letter-spacing:-.015em}
+h1{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800}
+h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+p{max-width:64ch;color:var(--muted)}
+a{color:inherit}
+ul,ol{list-style:none}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.page{animation:fadein .45s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}}
+
+.btn{display:inline-block;font:700 .98rem var(--body);padding:.8em 1.5em;border-radius:10px;border:2px solid transparent;
+  text-decoration:none;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn--solid{background:var(--primary);color:var(--on-brand)}
+.btn--solid:hover{background:color-mix(in srgb,var(--primary) 82%,white);box-shadow:0 8px 20px rgba(14,27,44,.25)}
+.btn--line{border-color:var(--line-btn);color:var(--line-btn);background:transparent}
+.btn--line:hover{background:var(--primary);border-color:var(--primary);color:var(--on-brand)}
+.btn--accent{background:var(--accent);color:var(--on-accent)}
+.btn--accent:hover{box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 45%,transparent)}
+.btn--block{display:block;text-align:center;width:100%}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}

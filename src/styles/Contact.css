@@ -1,0 +1,11 @@
+.cgrid{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:start}
+.form{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:32px;display:grid;gap:18px}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form label{display:grid;gap:6px;font-weight:700;font-size:.93rem}
+.form input,.form select,.form textarea{font:400 1rem var(--body);padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent);background:var(--white)}
+.form .btn{justify-self:start}
+.form__ok{color:#0f766e;font-weight:500}
+.cinfo{background:var(--brand);color:var(--on-brand);border-radius:var(--r);padding:30px;display:grid;gap:16px}
+.cinfo p{color:#c5cfde}.cinfo strong{color:var(--accent)}
+@media (max-width:860px){.cgrid{grid-template-columns:1fr}.form__row{grid-template-columns:1fr}}

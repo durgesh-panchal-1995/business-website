@@ -1,0 +1,12 @@
+.footer{background:var(--brand);color:#c5cfde;margin-top:0}
+.footer__grid{max-width:var(--w);margin:0 auto;padding:64px 24px 40px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.footer p{color:#c5cfde;font-size:.95rem}
+.footer__brand{font:800 1.4rem var(--display);color:var(--on-brand)!important;margin-bottom:10px}
+.footer__contact{margin-top:16px}
+.footer h4{color:var(--on-brand);font-size:1rem;margin-bottom:14px}
+.footer li{margin-bottom:8px;font-size:.92rem}
+.footer a{text-decoration:none;transition:color .2s}
+.footer a:hover{color:var(--accent)}
+.footer__base{max-width:var(--w);margin:0 auto;padding:20px 24px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem}
+@media (max-width:900px){.footer__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer__grid{grid-template-columns:1fr}}

@@ -1,0 +1,23 @@
+/* Color themes. Default (navy) lives in :root in base.css. Add a theme by copying a block and listing it in src/data/themes.js. */
+[data-theme="forest"]{
+  --ink:#10231a; --muted:#4f6b5c; --line:#d8e4dc; --bg:#f3f7f4; --white:#ffffff;
+  --brand:#12372a; --brand-2:#1d5a43; --primary:#12372a; --line-btn:#12372a;
+  --accent:#e9c46a; --accent-dark:#8a6d1a; --on-accent:#10231a;
+}
+[data-theme="royal"]{
+  --ink:#1a1033; --muted:#5d5780; --line:#e0daf2; --bg:#f6f4fc; --white:#ffffff;
+  --brand:#2b1a5e; --brand-2:#43279a; --primary:#43279a; --line-btn:#2b1a5e;
+  --accent:#ff8fab; --accent-dark:#c0285a; --on-accent:#2b1a5e;
+}
+[data-theme="sunset"]{
+  --ink:#2a1710; --muted:#7a5f50; --line:#efdfd2; --bg:#fdf6f0; --white:#ffffff;
+  --brand:#3b1d2a; --brand-2:#6b2c3e; --primary:#8a2f46; --line-btn:#3b1d2a;
+  --accent:#ff9f1c; --accent-dark:#b35f00; --on-accent:#2a1710;
+}
+[data-theme="dark"]{
+  --ink:#e8eef9; --muted:#9aa9c2; --line:#26344d; --bg:#0b1220; --white:#131c2e;
+  --brand:#0a1628; --brand-2:#16294a; --primary:#3d6fe8; --line-btn:#e8eef9;
+  --accent:#f5a524; --accent-dark:#f5b84d; --on-accent:#0e1b2c;
+}
+[data-theme="dark"] .scard__tag{background:color-mix(in srgb,var(--tone) 25%,var(--white))}
+[data-theme="dark"] .phero,[data-theme="dark"] .cta,[data-theme="dark"] .footer,[data-theme="dark"] .cinfo{border-color:var(--line)}
